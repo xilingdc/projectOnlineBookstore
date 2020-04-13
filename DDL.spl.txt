@@ -1,0 +1,88 @@
+create table user
+	(userID			varchar(8),
+	 firstname		varchar(15),
+	 middlename		varchar(15),
+	 lastname		varchar(15),
+	 primary key (userID)
+	);
+
+create table phone
+	(phoneID		varchar(8),
+	 cell_phone		varchar(10),
+	 home_phone		varchar(10),
+	 primary key (phoneID)
+	);
+
+craete table email
+	(emailID		varchar(8),
+	 email_address		varchar(15),
+	 primary key (emailID)
+	);
+
+create table address
+	(zipcode		varchar(6),
+	 city			varchar(15),
+	 province		varchar(15),
+	 streetNumver		varchar(15),
+	 streetName		varchar(15),
+	 primary key (zipcode)
+	);
+
+create table OrderInfo
+	(orderID		varchar(8),
+	 order_status		varchar(5),
+	 primary key (orderID)
+	);
+
+create table Date
+	(dateID			varchar(8),
+	 year			numeric(4,0),
+	 month			varchar(8),
+	 day			varchar(2),
+	 primary key (dateID)
+	);
+
+create table Book
+	(bookID			varchar(8),
+	 price			numeric(6,2),
+	 number_of_pages	numeric(6,0),
+	 threshold		int(),
+	 primary key (bookID)
+	);
+
+create table Author
+	(authorID		varchar(8),
+	 firstname		varchar(15),
+	 middlename		varchar(15),
+	 lastname		varchar(15),
+	 primary key (authorID)
+	);
+
+craete table Publisher
+	(publisherID		varchar(8),
+	 name			varchar(20),
+	 primary key (publisherID)
+	);
+
+create table bankAccount
+	(banknumber		varchar(15),
+	 bankname		varchar(20),
+	 primary key (banknumber)
+	);
+
+create table Genre
+	(GenreID		varchar(8),
+	 genre_name		varchar(15),
+	 primary key (GenreID)
+	);
+
+create table order_book
+	(orderID		varchar(8),
+	 bookID			varchar(8),
+	 quantity		int(),
+	 priamry key (orderID, bookID),
+	 foreign key (orderID) references orderInfo
+		on delete cascade,
+	 foreign key (bookID) references book
+		on delete cascade
+	);
