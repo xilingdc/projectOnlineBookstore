@@ -3,7 +3,16 @@ create table user
 	 firstname		varchar(15),
 	 middlename		varchar(15),
 	 lastname		varchar(15),
-	 primary key (userID)
+	 phoneID		varchar(8),
+	 emailID		varchar(8),
+	 zipcode		varchar(6),
+	 primary key (userID),
+	 foreign key (phoneID) references phone
+		on delete cascade,
+	 foreign key (emailID) references email
+		on delete cascade,
+	 foreign key (zipcode) references address
+		on delete cascade
 	);
 
 create table phone
@@ -31,7 +40,16 @@ create table address
 create table OrderInfo
 	(orderID		varchar(8),
 	 order_status		varchar(5),
-	 primary key (orderID)
+	 dateID			varchar(8),
+	 userID			varchar(8),
+	 zipcode		varchar(6),
+	 primary key (orderID),
+	 foreign key (dateID) references date
+		on delete cascade,
+	 foreign key (userID) references user
+		on delete cascade,
+	 foreign key (zipcode) references address
+		on delete cascade
 	);
 
 create table Date
@@ -47,7 +65,16 @@ create table Book
 	 price			numeric(6,2),
 	 number_of_pages	numeric(6,0),
 	 threshold		int(),
-	 primary key (bookID)
+	 authorID		varchar(8),
+	 genreID		varchar(8),
+	 publisherID		varchar(8),
+	 primary key (bookID),
+	 foreign key (authorID) references author
+		on delete cascade,
+	 foreign key (genreID) references genre
+		on delete cascade,
+	 foreign key (publisherID) references publisher
+		on delete cascade
 	);
 
 create table Author
@@ -61,7 +88,13 @@ create table Author
 craete table Publisher
 	(publisherID		varchar(8),
 	 name			varchar(20),
-	 primary key (publisherID)
+	 banknumber		varchar(15),
+	 emailID		varchar(8),
+	 primary key (publisherID),
+	 foreign key (banknumber) references bankAccount
+		on delete cascade,
+	 foreign key (emailID) references email
+		on delete cascade
 	);
 
 create table bankAccount
