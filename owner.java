@@ -1,5 +1,7 @@
 package onlineBookstore;
 
+//author: xiling wang 101047930
+
 public class owner extends Thread{
 	
 	public owner () {
