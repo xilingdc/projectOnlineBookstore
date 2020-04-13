@@ -1,5 +1,7 @@
 package onlineBookstore;
 
+//author: xiling wang 101047930
+
 import java.util.ArrayList;
 
 public class customer extends Thread{
